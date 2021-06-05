@@ -5,8 +5,7 @@ body{
 }
  
 #im{
-	max-width: 1000px;
-	min-width: 100px;
+	 
 	position: sticky;
 	top: 100px;
 	left: 50;

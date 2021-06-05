@@ -1,46 +1,43 @@
  
 var oldscroll = 0;
-var ScrollY = 0;
+var newscroll = 0;
 var r = 0;
 var g = 0;
-var b = 0;
+var b = 0;	
+var x = 100;
+var height = 1000;
 function ff()
 {
-
- 	var elem =  document.getElementById('im');
-	if(oldscroll > ScrollY )
+	newscroll = window.scrollY;
+	if(oldscroll < newscroll)
+		height = height + newscroll - oldscroll;
+	else
 	{
-  		elem.width = document.getElementById('im').width - (oldscroll - ScrollY)/10; 
-		 
+	 
 	}
-  	else
-  	{
-  		elem.width = document.getElementById('im').width + (ScrollY - oldscroll)/10; 
-  	}
-  	oldscroll = ScrollY;
-  	var c = document.getElementById('b');
-  	ScrollY = window.scrollY;
-  	c.backgroundColor = 'red';
-}
-
-document.getElementById('b').onscroll = function() { ff()} ;
-function func()
-{
-	var elem = document.getElementById('im');
-	var elem1 = document.getElementById('b');
-	if(!elem.classList.contains('unu'))
+	 $('body').css({ 
+		'height': height
+	});
+	if(newscroll > oldscroll)
 	{
-		elem1.classList.add("bb");
-		elem.classList.add("unu");
-	
+	x = x + 10;
+	$("#im").css({
+		'transform':'rotate(' + x + 'deg)'
+	});
 	}
 	else
 	{
-		elem.classList.remove("unu");
-		elem1.classList.remove("bb");
+		x = x - 10;
+		$("#im").css({
+			'transform':'rotate(' + x + 'deg)'
+		});
 	}
+	oldscroll = newscroll;
+
 }
 
+document.getElementById('b').onscroll = function() { ff()} ;
+ 
 
 
 
@@ -49,6 +46,4 @@ function func()
 /////  jQuery  /////
 ////////////////////
 ////////////////////
-$("img").hide('slow/400', function() {
-	
-});
+ 
