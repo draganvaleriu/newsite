@@ -1,14 +1,14 @@
 body{
 	height: 10000px;
 	background-color: rgb(190, 114, 28);
-	 
+  	 
 }
  
 #im{
 	 
 	position: sticky;
-	top: 100px;
-	left: 50;
+	top: 45%;
+	left: 35%;
 }
 
 .unu{
